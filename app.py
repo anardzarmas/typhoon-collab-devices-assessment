@@ -114,10 +114,7 @@ def generar_recomendacion():
     if "No" in q_inmersion or "Parcialmente" in q_inmersion:
         recomendaciones.append("- Cinematic Meetings & Multi-Cámara (Cisco Room Kit EQ/EQX): Inteligencia de video que cambia de toma automáticamente (Cross-View) para asegurar equidad en reuniones (Meeting Equity) en salas grandes o profundas.")
     
-    # Lógica de Administración y Analítica
-    if "Sí" in q_panel or "Nulo/Bajo" in q_visibilidad:
-        recomendaciones.append("- Webex Control Hub & Workspace Insights: Consolidación de la gestión en un solo panel. Monitoreo en tiempo real del uso de salas, métricas ambientales (temperatura, humedad) y troubleshooting de extremo a extremo.")
-    
+  
     # Lógica de Sostenibilidad
     if "Sí, es de alta prioridad" in q_sostenibilidad:
         recomendaciones.append("- Iniciativas de Sostenibilidad Cisco: Equipos diseñados con materiales reciclados y empaques sin plástico. Integración de funciones como 'Office Hours' para apagar pantallas automáticamente y reducir la huella de carbono.")
@@ -298,8 +295,10 @@ def crear_pdf():
         ("Nivel de inmersión de participantes remotos en salas grandes", q_inmersion)
     ])
                  
-    print_bloque("IV. Gestion de TI y Seguridad", [
-        ("Consolidación en un único panel de control", q_panel),
+    print_bloque("IV. Gestión de TI, Seguridad y Observabilidad", [
+        ("Capacidad de diagnóstico de red (ISP, Local, Nube)", q_observabilidad),
+        ("Requisito de procesamiento de IA local (Privacidad)", q_seguridad_financiera),
+        ("Prioridad de gestión centralizada de parches y seguridad", q_gestion_central),
         ("Herramientas actuales de visibilidad y troubleshooting", q_herramientas)
     ])
 
