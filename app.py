@@ -70,7 +70,7 @@ q_observabilidad = st.selectbox(
 )
 
 q_seguridad_financiera = st.radio(
-    "13. Por normativa financiera, ¿requieren que el procesamiento de datos biométricos (rostros/voz) se realice localmente en el dispositivo?",
+    "13. Por políticas internas, ¿requieren que el procesamiento de datos biométricos (rostros/voz) se realice localmente en el dispositivo?",
     ["Sí, es obligatorio por cumplimiento", "Es deseable pero no mandatorio", "No es un requisito actual"]
 )
 
