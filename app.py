@@ -63,10 +63,21 @@ q_inmersion = st.selectbox("11. En sus salas más grandes, ¿los participantes r
                            ["Seleccione", "No, es difícil integrarlos", "Parcialmente", "Sí, la experiencia es excelente"])
 
 # IV. Gestión de TI y Seguridad
-st.subheader("IV. Gestión de TI y Seguridad")
-q_panel = st.selectbox("12. ¿Buscan consolidar la administración de su entorno de colaboración en un único panel de control centralizado?", 
-                       ["Seleccione", "Sí, es prioridad", "Sería ideal pero no prioritario", "No es necesario actualmente"])
-q_herramientas = st.text_area("13. ¿Qué herramientas utilizan hoy para tener visibilidad sobre la calidad de las llamadas y solucionar problemas?")
+st.subheader("IV. Gestión de TI y Seguridad, y Observabilidad")
+q_observabilidad = st.selectbox(
+    "12. ¿Cuál es su capacidad actual para diagnosticar si una falla de conexión es atribuible al ISP, la red local o la plataforma de video?",
+    ["Nula (Dependemos del reporte del usuario)", "Limitada (Solo red local)", "Total (Visibilidad hop-by-hop)"]
+)
+
+q_seguridad_financiera = st.radio(
+    "13. Por normativa financiera, ¿requieren que el procesamiento de datos biométricos (rostros/voz) se realice localmente en el dispositivo?",
+    ["Sí, es obligatorio por cumplimiento", "Es deseable pero no mandatorio", "No es un requisito actual"]
+)
+
+q_gestion_central = st.selectbox(
+    "14. ¿Qué importancia tiene automatizar la actualización de firmware y parches de seguridad desde un único panel cifrado?",
+    ["Crítica (Prioridad absoluta)", "Media", "Baja"]
+)
 
 # V. Calificación de la oportunidad comercial
 st.subheader("V. Calificación de la oportunidad comercial.")
@@ -121,7 +132,45 @@ def generar_recomendacion():
 
     if not recomendaciones:
         recomendaciones.append("- Portafolio de Cisco Collaboration Devices y Webex Suite: Solución integral adaptada a sus necesidades específicas de trabajo híbrido.")
-        
+
+    # 1. Lógica de Observabilidad (ThousandEyes) - Pregunta 12
+    if q_observabilidad in ["Nula (Dependemos del reporte del usuario)", "Limitada (Solo red local)"]:
+        recomendaciones.append(
+            "**Cisco ThousandEyes Integration:** Se detecta una brecha en la visibilidad de red. "
+            "Se recomienda activar los agentes de ThousandEyes nativos en los dispositivos para obtener una "
+            "ruta visual 'hop-by-hop'. Esto permitirá a IT identificar si las fallas ocurren en el ISP o en la "
+            "nube, reduciendo drásticamente el tiempo de resolución (MTTR)."
+        )
+    
+    # 2. Lógica de Seguridad Financiera (Local IA/NVIDIA) - Pregunta 13
+    if q_seguridad_financiera in ["Sí, es obligatorio por cumplimiento", "Es deseable pero no mandatorio"]:
+        recomendaciones.append(
+            "**Privacidad y Seguridad de RoomOS:** Para cumplir con los estándares de Grupo Autofin, "
+            "la arquitectura se basa en el procesamiento local de IA mediante chips NVIDIA. "
+            "Esto garantiza que el reconocimiento de rostros, supresión de ruido y encriptación ocurran "
+            "dentro del hardware, evitando el envío de datos sensibles a nubes de terceros."
+        )
+
+    # 3. Lógica de Gestión Centralizada (Control Hub) - Pregunta 14
+    if q_gestion_central in ["Crítica (Prioridad absoluta)", "Media"]:
+        recomendaciones.append(
+            "**Webex Control Hub (Single Pane of Glass):** Se recomienda la consolidación de la gestión en "
+            "Control Hub para automatizar actualizaciones de firmware y parches de seguridad. "
+            "Esto asegura que toda la base instalada de Autofin esté siempre protegida y bajo cumplimiento "
+            "sin intervención manual en sitio."
+        )
+
+    # 4. Lógica de Interoperabilidad (Basada en la pregunta de Teams/Plataformas)
+    if "Sí, exclusivo" in q_teams:
+        recomendaciones.append(
+            "**Cisco Devices for Microsoft Teams Rooms (MTR):** Implementación de hardware certificado "
+            "para correr Teams de forma nativa, manteniendo la telemetría avanzada de Cisco."
+        )
+    elif "No, multiplataforma" in q_teams:
+        recomendaciones.append(
+            "**Interoperabilidad Multiplataforma Nativa:** Uso de Webex Video Integration para MS Teams, "
+            "permitiendo que las salas se unan a cualquier reunión (Zoom, Google, Teams) con un solo botón."
+        )
     return recomendaciones
 
 # --- GENERACIÓN DE PDF LOOK & FEEL ---
