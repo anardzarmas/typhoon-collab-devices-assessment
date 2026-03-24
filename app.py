@@ -142,7 +142,7 @@ def generar_recomendacion():
     # 2. Lógica de Seguridad Financiera (Local IA/NVIDIA) - Pregunta 13
     if q_seguridad_financiera in ["Sí, es obligatorio por cumplimiento", "Es deseable pero no mandatorio"]:
         recomendaciones.append(
-            "**Privacidad y Seguridad de RoomOS:** Para cumplir con los estándares de Grupo Autofin, "
+            "**Privacidad y Seguridad de RoomOS:** Para cumplir con los estándares, "
             "la arquitectura se basa en el procesamiento local de IA mediante chips NVIDIA. "
             "Esto garantiza que el reconocimiento de rostros, supresión de ruido y encriptación ocurran "
             "dentro del hardware, evitando el envío de datos sensibles a nubes de terceros."
@@ -153,7 +153,7 @@ def generar_recomendacion():
         recomendaciones.append(
             "**Webex Control Hub (Single Pane of Glass):** Se recomienda la consolidación de la gestión en "
             "Control Hub para automatizar actualizaciones de firmware y parches de seguridad. "
-            "Esto asegura que toda la base instalada de Autofin esté siempre protegida y bajo cumplimiento "
+            "Esto asegura que toda la base instalada esté siempre protegida y bajo cumplimiento "
             "sin intervención manual en sitio."
         )
 
