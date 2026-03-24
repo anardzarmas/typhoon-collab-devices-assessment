@@ -37,7 +37,7 @@ st.write("Seleccione las opciones que mejor describan su entorno y utilice los c
 
 # I. Requerimientos y Necesidades del Negocio
 st.subheader("I. Requerimientos y Necesidades del Negocio")
-q_expectativas = st.text_area("1. ¿Cuáles son las expectativas de los usuarios al regresar a la oficina y qué nuevos modelos de trabajo híbrido buscan habilitar?")
+q_expectativas = st.text_area("¿Cuál es la visión de éxito y las expectativas de experiencia (ej. simplicidad de conexión, paridad entre remotos y presenciales, o innovación tecnológica) que sus colaboradores demandan para que el regreso a la oficina sea percibido como un valor agregado?")
 q_prioridad = st.selectbox("2. ¿Están priorizando la inversión en agregar nuevas salas de reuniones o en actualizar las existentes?", 
                            ["Seleccione", "Agregar nuevas salas", "Actualizar las existentes", "Ambas por igual"])
 q_sostenibilidad = st.selectbox("3. ¿Tienen iniciativas de sostenibilidad corporativa en las que la infraestructura tecnológica deba contribuir?", 
