@@ -299,7 +299,6 @@ def crear_pdf():
         ("Capacidad de diagnóstico de red (ISP, Local, Nube)", q_observabilidad),
         ("Requisito de procesamiento de IA local (Privacidad)", q_seguridad_financiera),
         ("Prioridad de gestión centralizada de parches y seguridad", q_gestion_central),
-        ("Herramientas actuales de visibilidad y troubleshooting", q_herramientas)
     ])
 
     print_bloque("V. Calificacion de la oportunidad comercial", [
